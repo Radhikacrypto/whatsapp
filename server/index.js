@@ -1,28 +1,27 @@
-// import express from 'express';
-// import dotenv from 'dotenv';
-// import cors from 'cors';
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import AuthRoutes from './routes/AuthRoutes.js'
 
 // Load environment variables from a .env file
-// dotenv.config();
+dotenv.config();
 
-// const app = express();
-// const PORT = process.env.PORT || 3000; // Use environment variable or default to 3500
+const app = express();
 
-// // Middleware
-// app.use(cors());  // Enable CORS for all requests
-// app.use(express.json());  // Parse JSON request bodies
 
-// // Routes
-// app.get('/', (req, res) => {
-//     res.send('Hello, world!');  // Send a response to the client
-// });
+// Middleware
+app.use(cors());  // Enable CORS for all requests
+app.use(express.json());  // Parse JSON request bodies
 
-// // Start server
-// const server = app.listen(PORT, () => {
-//     console.log(`Server started on port ${PORT}`);  // Use backticks for string interpolation
-// });
+app.use("/api/auth", AuthRoutes)
 
-// // Error handling
-// server.on('error', (err) => {
-//     console.error(`Server error: ${err}`);
-// });
+
+// Start server
+const server = app.listen(process.env.PORT, () => {
+    console.log(`Server started on port ${process.env.PORT}`);  // Use backticks for string interpolation
+});
+
+// Error handling
+server.on('error', (err) => {
+    console.error(`Server error: ${err}`);
+});
