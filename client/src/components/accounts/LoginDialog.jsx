@@ -6,6 +6,7 @@ import { Dialog, Typography, List, ListItem, Box, styled } from '@mui/material';
 import { qrCodeImage } from '../../constants/data';
 
 import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode} from "jwt-decode";
 
 const Component = styled(Box)`
     display: flex; 
@@ -52,12 +53,14 @@ const dialogStyle = {
 
 const LoginDialog = () => {
 
-    const onLoginSuccess = ()=>{
-
+    const onLoginSuccess = (res)=>{
+        const decoded= jwtDecode(res.credential);
+        console.log(decoded)
     }
 
-    const onLoginError=()=>{
+    const onLoginError=(res)=>{
 
+        console.log('Login Failed:', res)
     }
 
 
@@ -67,6 +70,8 @@ const LoginDialog = () => {
             
             maxWidth={'md'}
             PaperProps={{ sx: dialogStyle }}
+            hideBackdrop={true}
+        
         >
             <Component>
                 <Container>

@@ -5,7 +5,7 @@ import { clientId } from "./constants/data";
 
 function App() {
 
-  const clientId=''
+  const clientId='796654048612-vfhvh8887qrdfm1dkums1r4shsba800t.apps.googleusercontent.com'
   return (
     <GoogleOAuthProvider clientId={clientId}>
 
