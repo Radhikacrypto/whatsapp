@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import LoginDialog from './accounts/LoginDialog';
 import { AppBar, Box, Toolbar } from '@mui/material';
-import ChatDialog from '../chat/ChatDialog';
+import ChatDialog from './chat/ChatDialog';
 import { AccountContext } from '../context/AccountProvider';
 
 
@@ -14,7 +14,7 @@ const Messenger = () => {
         {
           account?
           <>
-          <AppBar style={{ backgroundColor: '#00A884', height: '200px', boxShadow: 'none' }}>
+          <AppBar style={{ backgroundColor: '#00A884', height: '50px', boxShadow: 'none' }}>
           <Toolbar>
            
           </Toolbar>
